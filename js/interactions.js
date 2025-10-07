@@ -20,4 +20,20 @@ const populateFilters = (data) => {
                 updateHistogram(d.id, data);
             }
         });
+    
+    const updateHistogram = (filterId, data) => {
+        const updatedData = filterId === 'all'
+            ? data
+            : data.filter(tv => tv.screenTech === filterId);
+        
+        const updatedBins = binGenerator(updatedData);
+
+        d3.selectAll('#histogram rect')
+            .data(updatedBins)
+            .transition()
+                .duration(500)
+                .ease(d3.easeCubicInOut)
+                .attr('y', d => yScale(d.length))
+                .attr('height', d => innerHeight - yScale(d.length));
+    };
 }
