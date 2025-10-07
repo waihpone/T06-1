@@ -10,8 +10,8 @@ const drawHistogram = (data) => {
 	const innerChart = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
-    const binGenerator = d3.bin()
-        .value(d => d.energyConsumption)
+    // const binGenerator = d3.bin()
+    //     .value(d => d.energyConsumption)
     
     const bins = binGenerator(data);
     console.log(bins);

@@ -16,3 +16,6 @@ const filters_screen = [
     { id: 'LCD', label: 'LCD', isActive: false },
     { id: 'OLED', label: 'OLED', isActive: false },
 ];
+
+const binGenerator = d3.bin()
+        .value(d => d.energyConsumption)
