@@ -17,5 +17,14 @@ const filters_screen = [
     { id: 'OLED', label: 'OLED', isActive: false },
 ];
 
+const filters_size = [
+    { id: 'all', label: 'All sizes', isActive: true },
+    { id: '24', label: '24', isActive: false },
+    { id: '32', label: '32', isActive: false },
+    { id: '55', label: '55', isActive: false },
+    { id: '65', label: '65', isActive: false },
+    { id: '98', label: '98', isActive: false },
+];
+
 const binGenerator = d3.bin()
-        .value(d => d.energyConsumption)
+    .value(d => d.energyConsumption);

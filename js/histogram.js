@@ -51,6 +51,7 @@ const drawHistogram = (data) => {
     svg
         .append('text')
         .text("Labelled Energy Consumption (kWh/year)")
+        .attr('text-anchor', 'end')
         .attr('x', width - 20)
         .attr('y', height - 5)
         .attr('class', 'axis-label');

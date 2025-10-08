@@ -1,0 +1,70 @@
+.responsive-svg-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media screen and (max-width:596px) {
+    .responsive-svg-container {
+        margin-bottom: 20px;
+    }
+}
+
+.axis-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    fill: #5a3e2b;
+}
+
+/* Filter button styles (tech and size filters) */
+#filters_screen, #filters_size, .filters_size, .size-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.75rem 0 1.25rem 0;
+    align-items: center;
+}
+
+button.filter {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.12);
+    color: var(--primary);
+    padding: 0.35rem 0.7rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+button.filter:hover {
+    background: var(--hover);
+    border-color: var(--hover);
+}
+
+button.filter.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0,35,102,0.08);
+    transform: translateY(-1px);
+}
+
+/* Remove the focus ring for mouse clicks but keep it for keyboard users */
+button.filter:focus:not(:focus-visible) {
+    outline: none;
+    outline-offset: 0;
+}
+
+button.filter:focus-visible {
+    outline: 3px solid rgba(0,35,102,0.12);
+    outline-offset: 2px;
+}
+
+/* Smaller devices: make buttons slightly larger and wrap nicely */
+@media (max-width: 480px) {
+    button.filter {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+    }
+}

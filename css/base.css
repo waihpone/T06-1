@@ -1,19 +1,4 @@
-.responsive-svg-container {
-    width: 100%;
-    max-width: 1000px;
-}
 
-@media screen and (max-width:596px) {
-    .responsive-svg-container {
-        margin-bottom: 20px;
-    }
-}
-
-.axis-label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    fill: #5a3e2b;
-}
 
 /* Reduce space between heading and chart on index */
 main > section > h1 {
@@ -142,6 +127,8 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	padding: 1rem 0; /* add vertical padding so header has space */
+	padding-left: 1rem;
 }
 
 .navbar {
@@ -214,6 +201,27 @@ main {
 	max-width: 900px;
 	margin: 0 auto;
 	width: 100%;
+}
+
+/* Filters and chart card polish */
+#filters_screen {
+	margin: 1rem 0 1.25rem 0;
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.responsive-svg-container {
+	background: var(--card-bg);
+	padding: 0.75rem;
+	border-radius: 10px;
+	box-shadow: var(--card-shadow);
+	border: 1px solid rgba(0,0,0,0.04);
+}
+
+.body {
+	margin-top: 0.75rem;
+	color: #333;
 }
 
 footer {
