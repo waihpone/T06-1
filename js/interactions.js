@@ -122,14 +122,22 @@ const handleMouseEvents = () => {
         .on('mouseenter', (e, d) => {
             console.log('Mouse entered circle', d);
 
+            const tooltipText = d3.select('.tooltip text')
+                .text(`${d.brand} ${d.model} (${d.screenSize}")`);
+
+            // Dynamically set tooltip rect width based on text length
+            const textNode = tooltipText.node();
+            const textWidth = textNode.getComputedTextLength ? textNode.getComputedTextLength() : 65;
+            d3.select('.tooltip rect')
+                .attr('width', textWidth + 20); // add padding
             d3.select('.tooltip text')
-                .text(d.screenSize);
-            
+                .attr('x', (textWidth + 20) / 2);
+
             const cx = e.target.getAttribute('cx');
             const cy = e.target.getAttribute('cy');
 
             d3.select('.tooltip')
-                .attr('transform', `translate(${cx - 0.5 * tooltipWidth}, ${cy - 1.5 * tooltipHeight})`)
+                .attr('transform', `translate(${cx - 0.5 * (textWidth + 20)}, ${cy - 1.5 * tooltipHeight})`)
                 .transition()
                     .duration(200)
                     .style('opacity', 1);
