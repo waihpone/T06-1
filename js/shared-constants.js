@@ -4,11 +4,22 @@ const height = 400;
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
-const barColor = '#606464';
-const bodyBackgroundColor = '#fffaf0';
+let innerChartS;
+
+const tooltipWidth = 65;
+const tooltipHeight = 32;
+
+const binGenerator = d3.bin()
+    .value(d => d.energyConsumption);
 
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
+const xScaleS = d3.scaleLinear();
+const yScaleS = d3.scaleLinear();
+const colorScale = d3.scaleOrdinal()
+    
+const barColor = '#606464';
+const bodyBackgroundColor = '#fffaf0';
 
 const filters_screen = [
     { id: 'all', label: 'All', isActive: true },
@@ -26,5 +37,3 @@ const filters_size = [
     { id: '98', label: '98', isActive: false },
 ];
 
-const binGenerator = d3.bin()
-    .value(d => d.energyConsumption);
