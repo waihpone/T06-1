@@ -1,3 +1,41 @@
+/* Data Source Section Styles */
+.body {
+	background: #fffaf0;
+	border-radius: 12px;
+	box-shadow: 0 2px 12px rgba(0,35,102,0.07);
+	padding: 1.25rem 1.5rem;
+	margin: 2rem 0 1.5rem 0;
+	max-width: 480px;
+	border: 1px solid #f0e6d2;
+}
+.body h3 {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #5a3e2b;
+	margin-bottom: 0.5rem;
+}
+.body p {
+	font-size: 1rem;
+	color: #3a2c1a;
+	margin-bottom: 0;
+}
+.body a {
+	color: #1a4d8f;
+	text-decoration: underline;
+	font-weight: 500;
+	transition: color 120ms;
+}
+.body a:hover {
+	color: #2a6fcf;
+	text-decoration: underline;
+}
+.body br + span {
+	display: inline-block;
+	margin-top: 0.5rem;
+	font-size: 0.95rem;
+	color: #7a5c3a;
+	font-style: italic;
+}
 
 
 /* Reduce space between heading and chart on index */
