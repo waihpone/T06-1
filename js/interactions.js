@@ -165,11 +165,21 @@ const handleMouseEvents = () => {
                 .attr('stroke', '#fff')
                 .attr('stroke-width', 1.5);
 
-            // Position tooltip above and right of the circle
-            const cx = e.target.getAttribute('cx');
-            const cy = e.target.getAttribute('cy');
+            // Position tooltip above and right of the circle, clamp to chart bounds
+            const cx = +e.target.getAttribute('cx');
+            const cy = +e.target.getAttribute('cy');
+            let tx = cx - 0.5 * rectWidth;
+            let ty = cy - rectHeight - 12;
+
+            // Clamp horizontally
+            if (tx < 0) tx = 0;
+            if (tx + rectWidth > innerWidth) tx = innerWidth - rectWidth;
+            // Clamp vertically
+            if (ty < 0) ty = cy + 16; // show below if not enough space above
+            if (ty + rectHeight > innerHeight) ty = innerHeight - rectHeight;
+
             tooltipG
-                .attr('transform', `translate(${cx - 0.5 * rectWidth}, ${cy - rectHeight - 12})`)
+                .attr('transform', `translate(${tx}, ${ty})`)
                 .transition()
                     .duration(200)
                     .style('opacity', 1);
